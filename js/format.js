@@ -5,7 +5,7 @@ class Format {
     console.log(changeFormat);
     var anchor = document.getElementById("anchor");
     anchor.href = changeFormat;
-    anchor.download = "download";
+    anchor.download = "download.gif";
     anchor.click();
   }
 }
