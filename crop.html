@@ -14,18 +14,25 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
     />
     <title>Title</title>
+    <link rel="stylesheet" href="jscrop.js/js-crop.css" />
   </head>
   <body>
-    enter the file
-    <input type="file" class="form-control" id="file" />
-    <a id="anchor">download</a>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/downloadjs/1.4.8/download.js"
-      integrity="sha512-mxCAjvjp0jvMdGRIEvAHOCGL6BOucqWpTBXwchElsPKNw7BEegHviDHPnYrOrzgzBiw3GD/Q1ibpA5nlFPYDMw=="
-      crossorigin="anonymous"
-    ></script>
+    <div class="image-container">
+      <img id="imageToCrop" src="done.png" alt="Image" />
+    </div>
+    <div class="canvas-container">
+      <canvas id="crop-result" width="200" height="300"></canvas>
+    </div>
+    <button id="crop">crop</button>
+    <button id="crop2">crop2</button>
+    <button id="crop3">download</button>
+
+    <script src="jscrop.js/js-crop.js"></script>
     <script src="js/format.js"></script>
-    <script src="js/gif.js"></script>
+    <script>
+      var crop = new Format();
+      crop.cropImage();
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

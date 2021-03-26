@@ -3,9 +3,22 @@ class Format {
     var findFormat = value.match(/^.*\;/);
     var changeFormat = value.replace(findFormat, "data:image/gif;");
     console.log(changeFormat);
-    var anchor = document.getElementById("anchor");
     anchor.href = changeFormat;
-    anchor.download = "download.gif";
-    anchor.click();
+  }
+
+  cropImage() {
+    window.addEventListener("DOMContentLoaded", function () {
+      var cropper = null;
+
+      cropper = jsCrop.initialise(document.getElementById("imageToCrop"), {
+        outputCanvas: document.getElementById("crop-result"),
+      });
+      document.getElementById("crop2").onclick = function () {
+        cropper.enableCropMode(this.classList.toggle("pressed"));
+      };
+      document.getElementById("crop").onclick = function () {
+        cropper.downloadCroppedImage();
+      };
+    });
   }
 }
