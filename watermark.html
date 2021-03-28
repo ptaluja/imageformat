@@ -1,0 +1,35 @@
+---
+layout: home
+permalink: /watermark
+---
+
+<div id="done"></div>
+enter the name<input type="file" id="input" />
+<script src="dist/watermark.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script>
+  var input = document.getElementById("input");
+  input.onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function () {
+      watermark([reader.result])
+        .image(watermark.text.lowerRight("sed life", "40px serif", "red"))
+        .then(function (img) {
+          document.getElementById("done").appendChild(img);
+        });
+      // watermark([reader.result, "pt.jpg"])
+      //   .image(watermark.image.lowerRight())
+      //   .then(function (img) {
+      //     console.log(img);
+      //     document.getElementById("done").appendChild(img);
+      //     var a = document.createElement("a");
+      //     a.href = img.src;
+      //     a.download = "download";
+      //     document.body.appendChild(a);
+      //     a.click();
+      //   });
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  };
+</script>
